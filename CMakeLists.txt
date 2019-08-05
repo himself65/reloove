@@ -36,4 +36,5 @@ target_compile_options(rl_run_tests PRIVATE ${rl_test_flags})
 target_include_directories(rl_run_tests PRIVATE include)
 target_link_libraries(rl_run_tests reloove gtest gtest_main)
 add_test(NAME rl_test
-        COMMAND rl_run_tests)
+        COMMAND rl_run_tests
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
