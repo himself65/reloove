@@ -1,6 +1,7 @@
 #include <reloove.h>
+#include <gtest/gtest.h>
+#include <iostream>
 
-// todo: using GTest
-int main() {
-    return 0;
+TEST(sample_test_case, sample_test) {
+    EXPECT_EQ(1, 1);
 }
