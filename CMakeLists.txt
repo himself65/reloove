@@ -3,6 +3,9 @@ project(reloove)
 
 if (MSVC)
     list(APPEND rl_test_flags /MTd)
+else ()
+    list(APPEND rl_flags -std=c++11)
+    list(APPEND rl_test_flags -std=c++11)
 endif ()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out CACHE STRING "")
@@ -22,6 +25,7 @@ add_subdirectory(${LIBUV_DIR} out/libuv)
 add_subdirectory(${GTEST_DIR} out/gtest)
 
 add_library(reloove ${rl_source})
+target_compile_options(reloove PRIVATE ${rl_flags})
 # Binding uv to reloove
 target_link_libraries(reloove uv)
 
